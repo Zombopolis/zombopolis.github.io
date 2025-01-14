@@ -11,14 +11,28 @@
             #title {
                 text-align: center;
             }
+
+            #cats {
+                text-align: center;
+            }
         </style>
     </head>
     <body id="body">
         <script>
+            let cats;
 
+            window.onload = function() {
+                cats = 0;
+            };
+
+            function Click() {
+                cats++;
+                document.getElementById("cats").innerHTML = toString(cats);
+            }
         </script>
         <h1 id="title">Cat Clicker</h1>
         <br>
-        <button><img src="img/cat.png"></button>
+        <button onclick="Click()"><img src="img/cat.png"></button>
+        <h3 id="cats">0</h3>
     </body>
 </html>
