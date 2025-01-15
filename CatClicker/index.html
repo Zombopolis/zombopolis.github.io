@@ -15,6 +15,17 @@
             #cats {
                 text-align: center;
             }
+
+            #cat_img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            #cat_btn {
+                background: none;
+                border: none;
+                padding: 0;
+            }
         </style>
     </head>
     <body id="body">
@@ -29,7 +40,7 @@
         </script>
         <h1 id="title">Cat Clicker</h1>
         <br>
-        <button onclick="Click()"><img src="img/cat.png"></button>
+        <button onclick="Click()" id="cat_btn"><img src="img/cat.png" id="cat_img"></button>
         <h3 id="cats">0</h3>
     </body>
 </html>
