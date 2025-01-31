@@ -15,12 +15,12 @@ COPY . .
 RUN ls
 
 # Obtain SSL certificate using certbot
-RUN certbot certonly --standalone -d yourdomain.com --non-interactive --agree-tos -m youremail@example.com
+RUN certbot certonly --standalone -d zombopolis.onwebapp.io --non-interactive --agree-tos -m wmckenzie2022@outlook.com
 
 # Configure HTTPS using the obtained certificate
 RUN mkdir -p /etc/ssl/certs /etc/ssl/private
-RUN cp /etc/letsencrypt/live/yourdomain.com/fullchain.pem /etc/ssl/certs/
-RUN cp /etc/letsencrypt/live/yourdomain.com/privkey.pem /etc/ssl/private/
+RUN cp /etc/letsencrypt/live/zombopolis.onwebapp.io/fullchain.pem /etc/ssl/certs/
+RUN cp /etc/letsencrypt/live/zombopolis.onwebapp.io/privkey.pem /etc/ssl/private/
 
 # Start the HTTPS server
 RUN BACKGROUND python3 -m http.server --bind 0.0.0.0 --directory /root/ --certfile /etc/ssl/certs/fullchain.pem --keyfile /etc/ssl/private/privkey.pem 443
