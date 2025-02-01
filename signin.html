@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign In</title>
+        <script src="https://raw.githubusercontent.com/Zombopolis/zombopolis.github.io/refs/heads/main/signininfo.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                document.getElementById('usernameForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const username = document.getElementById('username').value;
+                    const encodedUsername = btoa(username); // Encode the entered username
+
+                    if (credentials[encodedUsername]) {
+                        document.getElementById('passwordField').style.display = 'block';
+                        document.getElementById('passwordForm').dataset.username = encodedUsername; // Store the encoded username for later use
+                        document.getElementById('usernameForm').style.display = 'none';
+                    } else {
+                        alert("Incorrect username!");
+                    }
+                });
+
+                document.getElementById('passwordForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const encodedUsername = document.getElementById('passwordForm').dataset.username;
+                    const password = document.getElementById('password').value;
+                    const encodedPassword = btoa(password); // Encode the entered password
+
+                    if (encodedPassword === credentials[encodedUsername]) {
+                        alert("Access granted!");
+                        // Proceed with loading the gaming server or redirecting the user
+                    } else {
+                        alert("Access denied!");
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Sign In</h1>
+        <form id="usernameForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Next</button>
+        </form>
+        <form id="passwordForm" style="display: none;">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+    </body>
+</html>

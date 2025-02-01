@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cloudflare Test</title>
+        <!-- Include the Cloudflare Turnstile script -->
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Cloudflare Test</h1>
+        <p style="text-align: center;">This is a test page for Cloudflare Turnstile.</p>
+        
+        <!-- Add the Turnstile widget -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA7DxsqvldNDNbuV" style="text-align: center;"></div>
+        
+        <!-- Example form with Turnstile -->
+        <form action="/your-form-handler" method="POST" style="text-align: center;">
+            <input type="text" name="exampleField" placeholder="Example Field" required>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA7DxsqvldNDNbuV"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
