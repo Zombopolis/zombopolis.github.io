@@ -2,18 +2,10 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
-        <title>Zombopolis</title>
-        <style>
-            .center {
-                text-align: center;
-            }
-        </style>
     </head>
- 	<body>
+  	<body>
         <script>
-            let count = 2;
             let version;
-
             window.onload = async () => {  // Mark this function as async
                 try {
                     const response = await fetch("https://raw.githubusercontent.com/Zombopolis/zombopolis.github.io/refs/heads/main/version.txt");
@@ -28,35 +20,10 @@
                         alert("There was an error!\n Try again later");
                     }
                 } catch (error) {
-                    alert("An error occurred while fetching the version.");
+                    alert("There was an error!\n Try again later");
                 }
+                window.location.href = "main" + version + ".html";
             }
-
-            setInterval(() => {
-                if(count === 1) {
-                    document.getElementById('dots').innerHTML = '';
-                    count++;
-                } else if(count === 2) {
-                    document.getElementById('dots').innerHTML = '.';
-                    count++;
-                } else if(count === 3) {
-                    document.getElementById('dots').innerHTML = '..';
-                    count++;
-                } else if(count === 4) {
-                    document.getElementById('dots').innerHTML = '...';
-                    count = 1;
-                }
-            }, 500);
-
-            setTimeout(() => {
-                if (version) {
-                    window.location.href = version + '/index.html';
-                } else {
-                    alert("Version is not available.");
-                }
-            }, 4500);
         </script>
-        <h1 class="center">Get ready for awesomeness</h1>
-        <h2 class="center" id="dots"></h2>
     </body>
 </html>
